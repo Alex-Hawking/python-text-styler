@@ -1,3 +1,4 @@
+<h1>Text Styler</h1>
 <h3>𝘈 𝘴𝘪𝘮𝘱𝘭𝘦 𝘢𝘱𝘱 𝘧𝘰𝘳 𝘴𝘵𝘺𝘭𝘪𝘯𝘨 𝘵𝘦𝘹𝘵</h3>
 
 <a href="https://alexhawking.itch.io/textstyler">Download</a>
