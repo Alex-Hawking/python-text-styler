@@ -8,7 +8,8 @@ import tempfile
 import textStuff as tx
 from tkinter import *
 from tkinter import messagebox
-import tkinter.ttk as ttk
+from tkinter import ttk
+from ttkthemes import ThemedTk
 
 
 #Transparent Icon Courtesy Of https://stackoverflow.com/users/1546993/ubomb
@@ -33,7 +34,7 @@ class Window(Frame):
         def getText(receivedData):
             #Check If Character Err
             if receivedData == 'error':
-                messagebox.showwarning("Character Error", "Invalid Character: Please only use normal upper and lower case letters")
+                messagebox.showwarning("Character Error", "Invalid Character: Please only use supported characters")
             else:
                 #Output Text
                 textArea.delete('1.0', END)
@@ -52,25 +53,24 @@ class Window(Frame):
                 textArea.insert(END, sep.join(output))
 
         #Create and Pack Widgets
-        label_widget = Label(root, text="𝕋𝕖𝕩𝕥 𝕊𝕥𝕪𝕝𝕖𝕣", font=("Helvetica", 20), bg='#FFFFFF', fg="#0A0A0A")
+        label_widget = ttk.Label(root, text="𝕋𝕖𝕩𝕥 𝕊𝕥𝕪𝕝𝕖𝕣", font=("Helvetica", 20))
         label_widget.pack(pady=5)
-        inputArea = Entry(root, fg="#241909", bg="#EBEBEB")
+        inputArea = ttk.Entry(root)
         inputArea.pack()
-        styleButton = Button(root, text ="Style Text", command = lambda: getText(tx.convertText(inputArea.get())))
+        styleButton = ttk.Button(root, text ="Style Text", command = lambda: getText(tx.convertText(inputArea.get())))
         styleButton.pack(pady=8)
-        textArea = Text(root, height=6, width=25,font=("Consolas", 15), wrap=WORD, fg="#241909", bg="#EBEBEB")     
+        textArea = Text(root, height=6, width=25,font=("Consolas", 15), wrap=WORD)     
         textArea.pack()
         makeTxt = IntVar()
-        makeTxtCheckBox = Checkbutton(root, text='Add to style_out.txt file',variable=makeTxt, onvalue=1, offvalue=0, bg='#FFFFFF', fg="#0A0A0A").pack()
+        makeTxtCheckBox = ttk.Checkbutton(root, text='Add to style_out.txt file',variable=makeTxt, onvalue=1, offvalue=0).pack(pady=5)
 
         self.pack(fill=BOTH, expand=1)
 
 #Create Window
-root = Tk()
+root = ThemedTk(theme="radiance")
 app = Window(root)
 root.resizable(0,0)
 root.wm_title("𝕋𝕖𝕩𝕥 𝕊𝕥𝕪𝕝𝕖𝕣 ✎")
 root.iconbitmap(default=ICON_PATH)
-root.geometry("320x275")
-root.configure(bg='#FFFFFF')
+root.geometry("320x290")
 root.mainloop()
