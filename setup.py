@@ -13,11 +13,11 @@ executables = [
 includefiles = ["icon.ico", "textStuff.py"]
 
 setup(
-    name='TextStyler',
+    name='Text Styler',
     package_data={
         'Text Styler': includefiles,
     },
-    version='0.1',
+    version='1.0',
     description='A Simple App That Styles Text',
     author = "Alex Hawking",
     options = {
